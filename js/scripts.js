@@ -34,7 +34,7 @@ const towerData = {
 
 const consonants = 'bcdfghjklmnñpqrstvwxyzBCDFGHJKLMNÑPQRSTVWXYZ';
 const vowels = 'AEIOUaeiou';
-
+//Uno
 const extractVowels = sentence => {
   let onlyVowels = [];
   for (const word of sentence) {
@@ -46,7 +46,7 @@ const extractVowels = sentence => {
   }
   return onlyVowels;
 };
-
+//Dos
 const extractConsonants = sentence => {
   let onlyConsonants = [];
   for (const word of sentence) {
@@ -58,7 +58,7 @@ const extractConsonants = sentence => {
   }
   return onlyConsonants;
 };
-
+//Tres
 const splitWords = sentence => {
   let onlyWord = [];
   const splitSentence = sentence.split(' ');
@@ -66,6 +66,17 @@ const splitWords = sentence => {
 
   return onlyWord;
 };
+//Cuatro
+const extractWordLength = splitWords => {
+  let lengthWords = [];
+  for (const word of splitWords) {
+    lengthWords.push(word.length);
+  }
+
+  return lengthWords;
+};
+
+//Cinco
 
 //FUNCIÓN GENÉRICA
 const fillTower = sentence => {
@@ -78,9 +89,13 @@ const fillTower = sentence => {
   const wordsExtracted = splitWords(sentence);
   towerData.levelThree.words = wordsExtracted;
 
+  const lengthExtracted = extractWordLength(splitWords(sentence));
+  towerData.levelFour.wordLengths = lengthExtracted;
+
   console.log(vowelsExtracted);
   console.log(extractConsonants);
   console.log(splitWords);
+  console.log(extractWordLength);
 };
 fillTower('Frase random para testear');
 console.log(towerData);
